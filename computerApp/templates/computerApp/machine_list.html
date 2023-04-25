@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h1>Liste des machines</h1>
+    {% if machines %}
+    <ul>
+        {% for machine in machines %}
+            <li>
+                {{machine.id}} - ({{machine.nom}})
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>Il n\'y a pas de machine</p>
+    {% endif %}
+{% endblock %}

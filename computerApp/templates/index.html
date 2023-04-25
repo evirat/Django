@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% block title %}
+    <title>R&T development</title>
+    {% endblock %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1> R&T Dev </h1>
+    {% block sidebar %}
+        <h2>Menu</h2>
+        <ul id="menu">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'machines' %}">Machines</a></li>
+        </ul>
+    {% endblock %}
+    
+    {% load static %}
+    <img src="{% static 'computerApp/images/rtdev.png' %}" alt="logo" style="width:200px; height:200px">
+
+    {% block content %}
+        Blabla première page
+    {% endblock %}
+</body>
+</html>
