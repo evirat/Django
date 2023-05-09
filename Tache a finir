@@ -1,0 +1,9 @@
+[] Rajouter "Personne : Nom_personne"
+            "Infrastructure : Nom_Service" (exemple : Comptabilité)
+Pour cela : 
+[] Creer une class Personne dans le fichier /computerApp/models.py
+[] Creer une nouvelle vue dans /computerApp/views.py
+[] Creer un nouveau chemin dans /computerApp/urls.py
+[] Rajouter dans la page html : /computerApp/machine_detail.html les lignes suivantes : <p><strong>Personne : </strong> : {{ machine...... }}</p>
+                                                                                        <p><strong>Infrastrucuture : </strong> : {{ machine...... }}</p>
+[] Ajouter la fonctionnalité "supprimer une machine"
