@@ -1,3 +1,4 @@
+Tache à finir
 [] Rajouter "Personne : Nom_personne"
             "Infrastructure : Nom_Service" (exemple : Comptabilité)
 Pour cela : 
@@ -7,3 +8,14 @@ Pour cela :
 [] Rajouter dans la page html : /computerApp/machine_detail.html les lignes suivantes : <p><strong>Personne : </strong> : {{ machine...... }}</p>
                                                                                         <p><strong>Infrastrucuture : </strong> : {{ machine...... }}</p>
 [] Ajouter la fonctionnalité "supprimer une machine"
+
+Taches principales attendu du projet 
+[x] Ajouter une machine
+[] Supprimer une machine 
+[x] Visualiser une machine
+[] Voir informations sur la machine	
+  [] Personne 
+  [] Infrastructure
+[] Fonctionnalité unique : Suivi de machine pour ma part
+[] CSS : s'aider de ChatGPT et la librairie bootstrap
+[] Sécurisé le site
