@@ -1,9 +1,7 @@
-[] Ajouter une machine
-[] Supprimer une machine 
-[] Visualiser une machine
-[] Voir informations sur la machine	
-  [] Personne 
-  [] Infrastructure
-[] Fonctionnalité unique : Suivi de machine pour ma part
-[] CSS : s'aider de ChatGPT et la librairie bootstrap
-[] Sécurisé le site
+Django : SAE Mettre en place une solution informatique pour une entreprise
+
+Vous êtes un nouvel arrivant dans une société de développement informatique comme technicien réseau. 
+Cette société est une PME locale qui comporte une vingtaine d’employés et dont la cœur de métier est la prestation de services dans le réseau embarqué pour le spatial. 
+Cette entreprise se nomme R&T Development. Comme toute entreprise grandissante, de nouveaux besoins sur le plan informatiques émergent et nécessitent le renforcement de
+l’équipe DSI (Direction des Systèmes Informatisés) en particulier dans le domaine des infra structures. 
+Vous êtes recrutés pour mener à bien le projet d’informatisation de la DSI afin de mieux répondre aux demandes des utilisateurs
