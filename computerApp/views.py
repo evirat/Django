@@ -30,3 +30,11 @@ def machine_add_form(request):
         form = AddMachineForm()
         context = {'form' : form}
         return render(request, 'computerApp/machine_add.html', context)
+
+def machine_delete(request, pk):
+    machine = Machine.objects.get(pk=pk)
+    if request.method == 'POST':
+        machine.delete()
+        return redirect('machines-list')
+    context = {'machine': machine}
+    return render(request, 'computerApp/machine_delete.html', context)
