@@ -4,7 +4,8 @@
     <h1>Nom : {{ machine.name }}</h1>
     <p><strong>id</strong> : {{ machine.id }}</a></p>
     <p><strong>Date de maintenance : </strong>  {{ machine.maintenanceDate }}</p>
-    <p><strong>Machine : </strong> {{ machine.mach }}</p>
+    <p><strong>Machine : </strong> {{ machine.Type }}</p>
+    <p><strong>Propriétaire : </strong> {{ personne.prenom }}</p>
     <a href="{% url 'machine-delete' machine.id %}"> Supprimer {{ machine.nom }}</a>
 
 {% endblock %}
