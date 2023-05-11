@@ -31,8 +31,8 @@ def machine_add_form(request):
         context = {'form' : form}
         return render(request, 'computerApp/machine_add.html', context)
 
-def machine_delete(request, pk):
-    machine = Machine.objects.get(pk=pk)
+def machine_delete_views(request, pk):
+    machine = get_object_or_404(Machine, id=pk)
     if request.method == 'POST':
         machine.delete()
         return redirect('machines-list')

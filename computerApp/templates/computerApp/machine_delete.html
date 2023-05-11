@@ -2,9 +2,12 @@
 
 {% block content %}
   <h1>Supprimer une machine</h1>
+
+  <p>Voulez-vous vraiment supprimer la machine "{{ machine.nom }}" ?</p>
+
   <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Supprimer</button>
+    {% csrf_token %} <!--ajoute un jeton CSRF (Cross-Site Request Forgery) au formulaire pour empêcher les attaques CSRF.-->
+    <input type="submit" value="Confirmer">
+    <a href="{% url 'machine-detail' machine.id %}" class="btn btn-secondary">Annuler</a>
   </form>
 {% endblock %}
