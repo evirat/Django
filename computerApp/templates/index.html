@@ -12,12 +12,11 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1> R&T Dev </h1>
+    <h1> R&T DEVELOPMENT </h1>
 
 {% block sidebar %}
-        <h2>Menu</h2>
         <ul id="menu">
-            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'index' %}">Accueil</a></li>
             <li><a href="{% url 'machines' %}">Machines</a></li>
             <li><a href="{% url 'add-machine' %}">Ajouter une machine</a></li>
         </ul>
