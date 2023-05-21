@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1> R&T DEVELOPMENT </h1>
-
 {% block sidebar %}
+    <div class="logo">
+        <h1> R&T DEVELOPMENT </h1>
+    </div>
         <ul id="menu">
             <li><a href="{% url 'index' %}">Accueil</a></li>
             <li><a href="{% url 'machines' %}">Machines</a></li>
