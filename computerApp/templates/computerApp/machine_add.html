@@ -1,6 +1,7 @@
 {%extends "index.html"%}
 
 {% block content %}
+<h1 class="title">Création des machines</h1>
 <form method = "post" >
 {% csrf_token %}
 {{ form.nom }}

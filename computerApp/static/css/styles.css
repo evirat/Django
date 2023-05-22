@@ -1,0 +1,49 @@
+/* Titre RT DEV */
+
+h1{
+    color:white;
+}
+
+.title {
+    text-align: center;
+    margin: 0;
+    padding: 14px 0;
+    color: black;
+  }
+
+/* Formulaire */
+form {
+    text-align: center;
+    margin: 0;
+    padding: 14px 0;
+    color: black;
+}
+
+/* Images */
+img{
+    display: flex;
+    justify-content: center;
+}
+
+/* Styles CSS pour la nav bar */
+.navbar {
+    background-color: #3498db ;
+    overflow: hidden;
+}
+  
+.navbar a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+.navbar a:hover {
+    background-color: #ddd;
+    color: gray;
+}
+
+body{
+    background-image: linear-gradient(to right, #00c6a7 , #1e4d92 );
+}

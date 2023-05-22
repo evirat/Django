@@ -35,6 +35,6 @@ def machine_delete_views(request, pk):
     machine = get_object_or_404(Machine, id=pk)
     if request.method == 'POST':
         machine.delete()
-        return redirect('machines-list')
+        return redirect('machines')
     context = {'machine': machine}
     return render(request, 'computerApp/machine_delete.html', context)

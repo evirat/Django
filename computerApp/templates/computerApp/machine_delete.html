@@ -1,9 +1,9 @@
 {%extends "index.html"%}
 
 {% block content %}
-  <h1>Supprimer une machine</h1>
+  <h1 class="title">Supprimer une machine</h1>
 
-  <p>Voulez-vous vraiment supprimer la machine "{{ machine.nom }}" ?</p>
+  <p class="title">Voulez-vous vraiment supprimer la machine "{{ machine.nom }}" ?</p>
 
   <form method="post">
     {% csrf_token %} <!--ajoute un jeton CSRF (Cross-Site Request Forgery) au formulaire pour empêcher les attaques CSRF.-->
