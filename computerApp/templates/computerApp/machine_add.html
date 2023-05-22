@@ -1,10 +1,16 @@
-{%extends "index.html"%}
+{% extends "index.html" %}
 
 {% block content %}
 <h1 class="title">Création des machines</h1>
-<form method = "post" >
-{% csrf_token %}
-{{ form.nom }}
-<input type="submit" value="Creer">
+<form method="post">
+  {% csrf_token %}
+  
+  <label for="{{ form.nom.id_for_label }}">Nom de la machine : </label>
+  {{ form.nom }}
+
+  <label for="{{ form.nom.id_for_label }}">Prenom : </label>
+  {{ form.prenom }}
+  
+  <input type="submit" value="Créer">
 </form>
 {% endblock %}

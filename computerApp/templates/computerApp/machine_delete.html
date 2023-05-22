@@ -7,7 +7,8 @@
 
   <form method="post">
     {% csrf_token %} <!--ajoute un jeton CSRF (Cross-Site Request Forgery) au formulaire pour empêcher les attaques CSRF.-->
-    <input type="submit" value="Confirmer">
-    <a href="{% url 'machine-detail' machine.id %}" class="btn btn-secondary">Annuler</a>
+    <input type="submit" value="Confirmer" class="btn btn-secondary">
+    <a href="{% url 'machine-detail' machine.id %}" class="btn btn-danger">Annuler</a>
+
   </form>
 {% endblock %}

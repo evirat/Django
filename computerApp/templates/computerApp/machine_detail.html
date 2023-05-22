@@ -1,11 +1,28 @@
-{%extends "index.html"%}
+{% extends "index.html" %}
 
 {% block content %}
-    <h1>Nom : {{ machine.name }}</h1>
-    <p><strong>id</strong> : {{ machine.id }}</a></p>
-    <p><strong>Date de maintenance : </strong>  {{ machine.maintenanceDate }}</p>
-    <p><strong>Machine : </strong> {{ machine.Type }}</p>
-    <p><strong>Propriétaire : </strong> {{ personne.prenom }}</p>
-    <a href="{% url 'machine-delete' machine.id %}"> Supprimer {{ machine.nom }}</a>
-
+    <h1 class="title">Informations sur la machine</h1>
+    <table class="table table-striped w-50 mx-auto">
+        <tr>
+            <th>Nom : </th>
+            <td>{{ machine.nom }}</td>
+        </tr>
+        <tr>
+            <th>ID : </th>
+            <td>{{ machine.id }}</td>
+        </tr>
+        <tr>
+            <th>Date de maintenance : </th>
+            <td>{{ machine.maintenanceDate }}</td>
+        </tr>
+        <tr>
+            <th>Type : </th>
+            <td>{{ machine.Type }}</td>
+        </tr>
+        <tr>
+            <th>Propriétaire : </th>
+            <td>{{ personne.prenom }}</td>
+        </tr>
+    </table>
+    <a href="{% url 'machine-delete' machine.id %}" class="btn btn-danger">Supprimer {{ machine.nom }}</a>
 {% endblock %}

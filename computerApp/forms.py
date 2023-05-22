@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 
 class AddMachineForm(forms.Form) : 
     nom = forms.CharField(required = True, label= 'Nom de la machine')
+    prenom = forms.CharField(required = True, label= 'Propriétaire')
 
     def clean_nom(self):
         data = self.cleaned_data["nom"]
