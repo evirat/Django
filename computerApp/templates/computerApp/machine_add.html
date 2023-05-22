@@ -1,16 +1,19 @@
 {% extends "index.html" %}
 
 {% block content %}
-<h1 class="title">Création des machines</h1>
+<h1 class="title">Ajouter une machine</h1>
 <form method="post">
   {% csrf_token %}
-  
-  <label for="{{ form.nom.id_for_label }}">Nom de la machine : </label>
+<div class="form-group">
+  <label for="{{ form.nom.id_for_label }}" class="form-label">Nom de la machine : </label>
   {{ form.nom }}
-
-  <label for="{{ form.nom.id_for_label }}">Prenom : </label>
+</div>
+<div class="form-group"></div>
+  <label for="{{ form.nom.id_for_label }}" class="form-label">Prenom : </label>
   {{ form.prenom }}
-  
+</div>
+<div>
   <input type="submit" value="Créer">
+</div>
 </form>
 {% endblock %}

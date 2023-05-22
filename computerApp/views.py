@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect 
 from computerApp.models import Machine
 from .forms import AddMachineForm
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 def index(request):
@@ -38,3 +39,16 @@ def machine_delete_views(request, pk):
         return redirect('machines')
     context = {'machine': machine}
     return render(request, 'computerApp/machine_delete.html', context)
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('index')  # Redirection vers la page index.html
+        else:
+            # Gérer les erreurs d'authentification incorrecte
+            pass
+    return render(request, 'login.html')   
