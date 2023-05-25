@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect 
-from computerApp.models import Machine
-from .forms import AddMachineForm
+from computerApp.models import Machine, Personne
+from .forms import AddMachineForm, AddPersonneForm
 from django.contrib.auth import authenticate, login
 
 # Create your views here.
@@ -39,6 +39,37 @@ def machine_delete_views(request, pk):
         return redirect('machines')
     context = {'machine': machine}
     return render(request, 'computerApp/machine_delete.html', context)
+
+def personne_list_view(request):
+    personnes = Personne.objects.all()
+    context = {'personnes':personnes}
+    return render(request, 'computerApp/personne_list.html', context)
+
+def personne_detail_views(request, pk):
+    personne = get_object_or_404(Personne, id=pk)
+    context = {'personne': personne}
+    return render(request, 'computerApp/personne_detail.html', context)
+
+def personne_add_form(request):
+    if request.method == 'POST':
+        form = AddPersonneForm(request.POST or None)
+        if form.is_valid():
+            new_personne = Personne(nom=form.cleaned_data['nom'])
+            new_personne.save()
+            return redirect('personnes')
+
+    else:
+        form = AddPersonneForm()
+        context = {'form' : form}
+        return render(request, 'computerApp/personne_add.html', context)
+
+def personne_delete_views(request, pk):
+    personne = get_object_or_404(Personne, id=pk)
+    if request.method == 'POST':
+        personne.delete()
+        return redirect('personnes')
+    context = {'personne': personne}
+    return render(request, 'computerApp/personne_delete.html', context)
 
 def login_view(request):
     if request.method == 'POST':

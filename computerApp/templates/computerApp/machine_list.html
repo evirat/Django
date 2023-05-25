@@ -3,7 +3,7 @@
 {% block content %}
     <h1 class="title">Liste des machines</h1>
     {% if machines %}
-    <table class="table table-striped w-50 mx-auto">
+    <table class="table table-striped w-50 mx-auto ">
         <tr>
             <th>ID</th>
             <th>Nom</th>
@@ -12,11 +12,12 @@
         <tr>
             <td><a href="{% url 'machine-detail' machine.id %}">{{ machine.id }}</a></td>
             <td>{{ machine.nom }}</td>
+            <td>{{ machine.prenom }}</td>
         </tr>
         {% endfor %}
     </table>
     {% else %}
-    <p>Il n'y a pas de machines</p>
+    <p class="tab">Il n'y a pas de machines</p>
     {% endif %}
 
     <!-- <div class="card" style="width: 18rem;">

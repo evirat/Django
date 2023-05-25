@@ -1,0 +1,14 @@
+{%extends "index.html"%}
+
+{% block content %}
+  <h1 class="title">Supprimer une personne</h1>
+
+  <p class="title">Voulez-vous vraiment supprimer "{{ personne.nom }}" ?</p>
+
+  <form method="post">
+    {% csrf_token %} <!--ajoute un jeton CSRF (Cross-Site Request Forgery) au formulaire pour empêcher les attaques CSRF.-->
+    <input type="submit" value="Confirmer" class="btn btn-secondary">
+    <a href="{% url 'personne-detail' personne.id %}" class="btn btn-danger">Annuler</a>
+
+  </form>
+{% endblock %}

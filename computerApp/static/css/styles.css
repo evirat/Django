@@ -11,6 +11,12 @@ h1{
     color: white;
   }
 
+  .tab {
+    text-align: center;
+    margin: 0;
+    padding: 14px 0;
+  }
+
 /* Formulaire */
 form {
     text-align: center;

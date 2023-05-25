@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1 class="title">Informations sur la machine</h1>
-    <table class="table table-striped w-50 mx-auto">
+    <table class="table table-striped w-50 mx-auto col-md-12 text-center mt-4">
         <tr>
             <th>Nom : </th>
             <td>{{ machine.nom }}</td>
@@ -25,4 +25,5 @@
         </tr>
     </table>
     <a href="{% url 'machine-delete' machine.id %}" class="btn btn-danger">Supprimer {{ machine.nom }}</a>
+    <a href="{% url 'machines' %}" class="btn btn-secondary ">Retour</a>
 {% endblock %}
