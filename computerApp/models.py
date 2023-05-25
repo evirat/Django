@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django import forms
 
 # Create your models here.
 class Machine(models.Model):
@@ -45,6 +46,10 @@ class Personne(models.Model):
 
     def get_surname(self):
         return str(self.id) + " " + self.prenom
+
+class LoginForm(forms.Form):
+    username = forms.CharField(label='Nom d\'utilisateur')
+    password = forms.CharField(label='Mot de passe', widget=forms.PasswordInput)
 
 
 """

@@ -42,13 +42,14 @@ def machine_delete_views(request, pk):
 
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('index')  # Redirection vers la page index.html
+            return redirect('index')  # Redirige vers la page d'accueil après la connexion
         else:
-            # Gérer les erreurs d'authentification incorrecte
-            pass
-    return render(request, 'login.html')   
+            error_message = "Nom d'utilisateur ou mot de passe incorrect."
+            return render(request, 'login.html', {'error_message': error_message})
+    else:
+        return render(request, 'login.html')
