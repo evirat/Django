@@ -52,4 +52,4 @@ def login_view(request):
             error_message = "Nom d'utilisateur ou mot de passe incorrect."
             return render(request, 'login.html', {'error_message': error_message})
     else:
-        return render(request, 'login.html')
+        return render(request, 'templates/computerApp/login.html')
