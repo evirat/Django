@@ -3,20 +3,25 @@
 {% block content %}
     <h1 class="title">Liste des infrastructures</h1>
     {% if infrastructures %}
-    <ul>
-        {% for infrastructure in infrastructures %}
-            <li>
-                <strong>{{ infrastructure.nom }}</strong><br>
-                Machines :
-                <ul>
-                    {% for machine in infrastructure.machines.all %}
-                        <li>{{ machine.nom }}</li>
-                    {% endfor %}
-                </ul>
-            </li>
-        {% endfor %}
-    </ul>
+        <table class="table table-striped w-50 mx-auto">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for infrastructure in infrastructures %}
+                    <tr>
+                        <td><a href="{% url 'infrastructure-details' infrastructure.id %}">{{ infrastructure.id }}</a></td>
+                        <td>{{ infrastructure.nom }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <a class="btn btn-success" href="{% url 'add-infrastructure' %}">Ajouter une infrastructure</a>
+        </table>
     {% else %}
-        <p>Il n'y a pas d'infrastructures</p>
+        <p>Il n'y a pas d'infrastructures.</p>
+        <a class="btn btn-success" href="{% url 'add-infrastructure' %}">Ajouter une infrastructure</a>
     {% endif %}
 {% endblock %}

@@ -5,7 +5,6 @@ from computerApp.models import Machine, Personne
 class AddMachineForm(forms.Form) : 
 
     nom = forms.CharField(required = True, label= 'Nom de la machine')
-    prenom = forms.CharField(required = True, label= 'Propriétaire')
     type_machine = forms.ChoiceField(choices=Machine.TYPE, label='Type de machine')
 
     def clean_nom(self):

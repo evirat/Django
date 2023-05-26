@@ -25,4 +25,5 @@
         </tr>
     </table>
     <a href="{% url 'personne-delete' personne.id %}" class="btn btn-danger">Supprimer {{ personne.nom }}</a>
+    <a href="{% url 'personnes' %}" class="btn btn-secondary ">Retour</a>
 {% endblock %}

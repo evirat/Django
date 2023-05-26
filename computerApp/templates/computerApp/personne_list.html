@@ -16,9 +16,11 @@
             <td>{{ personne.prenom }}</td>
         </tr>
         {% endfor %}
+        <a class="btn btn-success" href="{% url 'add-personne' %}" >Ajouter une personne</a>
     </table>
     {% else %}
     <p class="title">Il n'y a pas de personne</p>
+    <a class="btn btn-success" href="{% url 'add-personne' %}" >Ajouter une personne</a>
     {% endif %}
 
 {% endblock %}

@@ -103,3 +103,17 @@ def add_infrastructure(request):
     else:
         form = InfrastructureForm()
     return render(request, 'computerApp/infra_add.html', {'form': form})
+
+def delete_infrastructure(request, infrastructure_id):
+    infrastructure = Infrastructure.objects.get(pk=infrastructure_id)
+    infrastructure.delete()
+    return redirect('infrastructures')
+
+def infrastructure_details(request, infrastructure_id):
+    infrastructure = Infrastructure.objects.get(pk=infrastructure_id)
+    machines = infrastructure.machines.all()
+    context = {
+        'infrastructure': infrastructure,
+        'machines': machines
+    }
+    return render(request, 'computerApp/infrastructure_details.html', context)

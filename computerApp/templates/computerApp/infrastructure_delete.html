@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h1 class="title">Supprimer une infrastructure</h1>
+    <p>Êtes-vous sûr de vouloir supprimer cette infrastructure ?</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Supprimer" class="btn btn-danger">
+        <a href="{% url 'infrastructures' %}" class="btn btn-secondary">Annuler</a>
+    </form>
+{% endblock %}
