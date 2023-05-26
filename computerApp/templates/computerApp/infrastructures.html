@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h1 class="title">Liste des infrastructures</h1>
+    {% if infrastructures %}
+    <ul>
+        {% for infrastructure in infrastructures %}
+            <li>
+                <strong>{{ infrastructure.nom }}</strong><br>
+                Machines :
+                <ul>
+                    {% for machine in infrastructure.machines.all %}
+                        <li>{{ machine.nom }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>Il n'y a pas d'infrastructures</p>
+    {% endif %}
+{% endblock %}

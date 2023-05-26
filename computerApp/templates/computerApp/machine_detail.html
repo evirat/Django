@@ -17,11 +17,11 @@
         </tr>
         <tr>
             <th>Type : </th>
-            <td>{{ machine.Type }}</td>
+            <td>{{ machine.get_type_machine_display }}</td>
         </tr>
         <tr>
             <th>Propriétaire : </th>
-            <td>{{ personne.prenom }}</td>
+            <td>{{ personne.nom }}</td>
         </tr>
     </table>
     <a href="{% url 'machine-delete' machine.id %}" class="btn btn-danger">Supprimer {{ machine.nom }}</a>

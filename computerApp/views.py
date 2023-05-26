@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect 
 from computerApp.models import Machine, Personne
-from .forms import AddMachineForm, AddPersonneForm
+from .forms import AddMachineForm, AddPersonneForm, InfrastructureForm
 from django.contrib.auth import authenticate, login
+from .models import Infrastructure
 
 # Create your views here.
 def index(request):
@@ -84,3 +85,21 @@ def login_view(request):
             return render(request, 'login.html', {'error_message': error_message})
     else:
         return render(request, 'templates/computerApp/login.html')
+
+def infrastructures(request):
+    infrastructures = Infrastructure.objects.all()
+    context = {'infrastructures': infrastructures}
+    return render(request, 'computerApp/infrastructures.html', context)
+
+def add_infrastructure(request):
+    if request.method == 'POST':
+        form = InfrastructureForm(request.POST)
+        if form.is_valid():
+            nom = form.cleaned_data['nom']
+            machines = form.cleaned_data['machines']
+            infrastructure = Infrastructure.objects.create(nom=nom)
+            infrastructure.machines.set(machines)
+            return redirect('infrastructures')
+    else:
+        form = InfrastructureForm()
+    return render(request, 'computerApp/infra_add.html', {'form': form})

@@ -15,4 +15,6 @@ urlpatterns = [
     path('personnes/<pk>', views.personne_detail_views, name='personne-detail'),
     path('add-personne',  views.personne_add_form, name='add-personne'),
     path('personnes/<pk>/delete/', views.personne_delete_views, name='personne-delete'),
+    path('infrastructures/', views.infrastructures, name='infrastructures'),
+    path('add-infrastructure/', views.add_infrastructure, name='add-infrastructure'),
 ]
