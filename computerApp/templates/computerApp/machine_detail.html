@@ -24,6 +24,9 @@
             <td>{{ personne.nom }}</td>
         </tr>
     </table>
+    <div class="col-md-12 text-center mt-4">
+        <img src="../../static/computerApp/images/pc.png" alt="logo" class="img-fluid mx-auto" width="200" height="500">
+    </div>
     <a href="{% url 'machine-delete' machine.id %}" class="btn btn-danger">Supprimer {{ machine.nom }}</a>
     <a href="{% url 'machines' %}" class="btn btn-secondary ">Retour</a>
 {% endblock %}
