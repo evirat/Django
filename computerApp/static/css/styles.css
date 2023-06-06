@@ -53,3 +53,8 @@ img{
 body{
     background-image: linear-gradient(to right, #00c6a7 , #1e4d92 );
 }
+
+#PC{
+    display: flex;
+    justify-content: space-between;
+}
