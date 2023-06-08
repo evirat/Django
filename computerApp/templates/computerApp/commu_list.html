@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h1 class="title fw-bold">Liste des Commutateurs</h1>
+    {% if coms %}
+        <div class="row">
+            {% for com in coms %}
+            <div id="PC" class="card border-info mb-3 col-md-6 col-lg-4 mx-auto" style="max-width: 18rem;"> 
+                <img src="../../static/computerApp/images/com.png" class="card-img-top" alt="logo">
+                <div class="card-body">
+                  <h5 class="card-title">{{ com.id }} : {{ com.nom }}</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="{% url 'com-detail' machine.id %}" class="btn btn-primary">Détails</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a class="btn btn-success" href="{% url 'add-com' %}" >Ajouter un commutateur</a>
+    {% else %}
+        <p class="tab">Il n'y a pas de commutateurs</p>
+        <a class="btn btn-success" href="{% url 'add-com' %}" >Ajouter un commutateur</a>
+    {% endif %}
+{% endblock %}

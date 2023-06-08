@@ -3,6 +3,7 @@ from datetime import datetime
 from django import forms
 
 # Create your models here.
+
 class Machine(models.Model):
     id = models.AutoField(
         primary_key=True,
@@ -57,3 +58,24 @@ class Infrastructure(models.Model):
 
     def __str__(self):
         return self.nom
+
+class Commutateur(models.Model):
+
+    id = models.AutoField(
+        primary_key=True,
+        editable=False)
+        
+    nom= models.CharField(
+        max_length= 200
+    )
+
+    def __str__(self):
+        return str(self.id) + "->" + self.nom
+
+    def get_name(self):
+        return str(self.id) + " " + self.nom
+
+class Maintenance(models.Model):
+    machine = models.ForeignKey(Machine, on_delete=models.CASCADE)
+    date = models.DateField()
+    description = models.TextField()

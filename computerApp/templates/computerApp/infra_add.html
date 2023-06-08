@@ -1,7 +1,7 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h1 class="title">Ajouter une infrastructure</h1>
+    <h1 class="title fw-bold">Ajouter une infrastructure</h1>
     <form method="post" class="form">
         {% csrf_token %}
         {{ form.as_p }}

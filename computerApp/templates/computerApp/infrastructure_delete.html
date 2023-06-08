@@ -1,7 +1,8 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h1 class="title">Supprimer une infrastructure</h1>
+    <h1 class="title fw-bold">Supprimer une infrastructure</h1>
+    <img src="../../static/computerApp/images/infra.png" class="card-img-top" alt="logo">
     <p>Êtes-vous sûr de vouloir supprimer cette infrastructure ?</p>
     <form method="post">
         {% csrf_token %}

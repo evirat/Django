@@ -1,16 +1,12 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h1 class="title fw-bold">Ajouter une personne</h1>
+    <h1 class="title fw-bold">Ajouter un commutateur</h1>
     <form method="post" class="form">
         {% csrf_token %}
         <div class="form-group">
-            <label for="{{ form.nom.id_for_label }}" class="form-label">Nom :</label>
+            <label for="{{ form.nom.id_for_label }}" class="form-label">Nom du commutateur :</label>
             {{ form.nom }}
-        </div>
-        <div class="form-group">
-            <label for="{{ form.prenom.id_for_label }}" class="form-label">Prénom :</label>
-            {{ form.prenom }}
         </div>
         <div class="form-group">
             <input type="submit" value="Créer" class="btn btn-primary">

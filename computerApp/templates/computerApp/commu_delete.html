@@ -1,14 +1,14 @@
 {%extends "index.html"%}
 
 {% block content %}
-  <h1 class="title fw-bold">Supprimer une machine</h1>
+  <h1 class="title fw-bold">Supprimer un commutateur</h1>
 
-  <p class="title">Voulez-vous vraiment supprimer la machine "{{ machine.nom }}" ?</p>
+  <p class="title">Voulez-vous vraiment supprimer la machine "{{ com.nom }}" ?</p>
 
   <form method="post">
     {% csrf_token %} <!--ajoute un jeton CSRF (Cross-Site Request Forgery) au formulaire pour empêcher les attaques CSRF.-->
     <input type="submit" value="Confirmer" class="btn btn-secondary ">
-    <a href="{% url 'machine-detail' machine.id %}" class="btn btn-danger ">Annuler</a>
+    <a href="{% url 'com-detail' com.id %}" class="btn btn-danger ">Annuler</a>
 
   </form>
 {% endblock %}

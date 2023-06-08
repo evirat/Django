@@ -1,36 +1,23 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h1 class="title">Liste des machines</h1>
+    <h1 class="title fw-bold">Liste des machines</h1>
     {% if machines %}
-        {% for machine in machines %}
-        <div id="PC" class="card border-info mb-3 col col-md-4" style="max-width: 18rem;"> 
-            <img src="../../static/computerApp/images/pc.png" class="card-img-top" alt="logo">
-            <div class="card-body">
-              <h5 class="card-title">{{ machine.id }} : {{ machine.nom }}</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="{% url 'machine-detail' machine.id %}" class="btn btn-primary">Détails</a>
+        <div class="row">
+            {% for machine in machines %}
+            <div id="PC" class="card border-info mb-3 col-md-6 col-lg-4 mx-auto" style="max-width: 18rem;"> 
+                <img src="../../static/computerApp/images/pc.png" class="card-img-top" alt="logo">
+                <div class="card-body">
+                  <h5 class="card-title">{{ machine.id }} : {{ machine.nom }}</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="{% url 'machine-detail' machine.id %}" class="btn btn-primary">Détails</a>
+                </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
         <a class="btn btn-success" href="{% url 'add-machine' %}" >Ajouter une machine</a>
     {% else %}
-    <p class="tab">Il n'y a pas de machines</p>
-    <a class="btn btn-success" href="{% url 'add-machine' %}" >Ajouter une machine</a>
+        <p class="tab">Il n'y a pas de machines</p>
+        <a class="btn btn-success" href="{% url 'add-machine' %}" >Ajouter une machine</a>
     {% endif %}
 {% endblock %}
-
-<!-- <table class="table table-striped w-50 mx-auto col-md-12 text-center mt-4">
-    <tr>
-        <th>ID</th>
-        <th>Nom</th>
-    </tr>
-    {% for machine in machines %}
-    <tr>
-        <img src="../../static/computerApp/images/pc.png" alt="logo" width="100" height="50">
-        <td><a href="{% url 'machine-detail' machine.id %}">{{ machine.id }}</a></td>
-        <td>{{ machine.nom }}</td>
-    </tr>
-    {% endfor %}
-    <a class="btn btn-success" href="{% url 'add-machine' %}" >Ajouter une machine</a>
-</table> -->

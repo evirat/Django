@@ -1,27 +1,24 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h1 class="title">Liste des infrastructures</h1>
+<h1 class="title fw-bold">Liste des infrastructures</h1>
     {% if infrastructures %}
-        <table class="table table-striped w-50 mx-auto">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nom</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for infrastructure in infrastructures %}
-                    <tr>
-                        <td><a href="{% url 'infrastructure-details' infrastructure.id %}">{{ infrastructure.id }}</a></td>
-                        <td>{{ infrastructure.nom }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-            <a class="btn btn-success" href="{% url 'add-infrastructure' %}">Ajouter une infrastructure</a>
-        </table>
+        <div class="row">
+            {% for infrastructure in infrastructures %}
+            <div id="PC" class="card border-info mb-3 col-md-6 col-lg-4 mx-auto" style="max-width: 18rem;"> 
+                <img src="../../static/computerApp/images/infra.png" class="card-img-top" alt="logo">
+                <div class="card-body">
+                  <h5 class="card-title">{{ infrastructure.id }}</h5>
+                  <h5 class="card-title">{{ infrastructure.nom }}</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="{% url 'infrastructure-details' infrastructure.id %}" class="btn btn-primary">Détails</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a class="btn btn-success" href="{% url 'add-infrastructure' %}">Ajouter une infrastructure</a>
     {% else %}
-        <p>Il n'y a pas d'infrastructures.</p>
+        <p class="tab">Il n'y a pas de machines</p>
         <a class="btn btn-success" href="{% url 'add-infrastructure' %}">Ajouter une infrastructure</a>
     {% endif %}
 {% endblock %}

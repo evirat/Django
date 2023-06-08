@@ -1,27 +1,27 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h1 class="title fw-bold">Informations sur la machine</h1>
+    <h1 class="title fw-bold">Informations sur le commutateur</h1>
     <table class="table table-striped w-50 mx-auto col-md-12 text-center mt-4">
         <tr>
             <th>Nom : </th>
-            <td>{{ machine.nom }}</td>
+            <td>{{ com.nom }}</td>
         </tr>
         <tr>
             <th>ID : </th>
-            <td>{{ machine.id }}</td>
+            <td>{{ com.id }}</td>
         </tr>
         <tr>
             <th>Date de maintenance : </th>
-            <td>{{ machine.maintenanceDate }}</td>
+            <td>{{ com.maintenanceDate }}</td>
         </tr>
         <tr>
             <th>Type : </th>
-            <td>{{ machine.get_Type_display }}</td>
+            <td>{{ com.get_Type_display }}</td>
         </tr>
         <tr>
             <th>Propriétaire : </th>
-            <td>{{ machine.description }}</td>
+            <td>{{ personne.nom }}</td>
         </tr>
         <tr>
             <th>Infrastructure(s) : </th>
@@ -29,8 +29,8 @@
         </tr>
     </table>
     <div class="col-md-12 text-center mt-4">
-        <img src="../../static/computerApp/images/pc.png" alt="logo" class="img-fluid mx-auto" width="200" height="500">
+        <img src="../../static/computerApp/images/com.png" alt="logo" class="img-fluid mx-auto" width="200" height="500">
     </div>
-    <a href="{% url 'machine-delete' machine.id %}" class="btn btn-danger">Supprimer {{ machine.nom }}</a>
-    <a href="{% url 'machines' %}" class="btn btn-secondary ">Retour</a>
+    <a href="{% url 'com-delete' com.id %}" class="btn btn-danger">Supprimer {{ com.nom }}</a>
+    <a href="{% url 'coms' %}" class="btn btn-secondary ">Retour</a>
 {% endblock %}

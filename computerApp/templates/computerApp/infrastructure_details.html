@@ -1,28 +1,26 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h1 class="title">Composition de l'infrastructure : {{ infrastructure.nom }}</h1>
+    <h1 class="title fw-bold">Composition de l'infrastructure : {{ infrastructure.nom }}</h1>
     {% if machines %}
-        <table class="table table-striped w-50 mx-auto col-md-12 text-center mt-4">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nom</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for machine in machines %}
-                    <tr>
-                        <td><a href="{% url 'machine-detail' machine.id %}">{{ machine.id }}</a></td>
-                        <td>{{ machine.nom }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
+        <div class="row">
+            {% for machine in machines %}
+            <div id="PC" class="card border-info mb-3 col-md-6 col-lg-4 mx-auto" style="max-width: 18rem;"> 
+            <img src="../../static/computerApp/images/infra.png" class="card-img-top" alt="logo">
+                <div class="card-body">
+                    <h5 class="card-title">{{ machine.id }} : {{ machine.nom }}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="{% url 'machine-detail' machine.id %}" class="btn btn-primary">Détails</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
         <p>Aucune machine n'est associée à cette infrastructure.</p>
     {% endif %}
-
+    <div class="col-md-12 text-center mt-4">
+        <img src="../../static/computerApp/images/infra.png" class="card-img-top" alt="logo">
+    </div>
     <a href="#" class="btn btn-primary">Ajouter à {{ infrastructure.nom }}</a>
     <a href="{% url 'delete-infrastructure' infrastructure.id %}" class="btn btn-danger">Supprimer {{ infrastructure.nom }}</a>
     <a href="{% url 'infrastructures' %}" class="btn btn-secondary">Retour</a>

@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect 
-from computerApp.models import Machine, Personne
-from .forms import AddMachineForm, AddPersonneForm, InfrastructureForm
+from computerApp.models import Machine, Personne, Commutateur
+from .forms import AddMachineForm, AddPersonneForm, InfrastructureForm, AddCommutateurForm, MaintenanceForm
 from django.contrib.auth import authenticate, login
-from .models import Infrastructure
+from .models import Infrastructure, Maintenance
+from django.shortcuts import render, redirect
+from django.utils import timezone
+from django.core.mail import send_mail
 
 # Create your views here.
 def index(request):
@@ -117,3 +120,56 @@ def infrastructure_details(request, infrastructure_id):
         'machines': machines
     }
     return render(request, 'computerApp/infrastructure_details.html', context)
+
+#Pour les commutateurs
+
+def commu_list_view(request):
+    coms = Commutateur.objects.all()
+    context = {'coms':coms}
+    return render(request, 'computerApp/commu_list.html', context)
+
+def commu_detail_views(request, pk):
+    com = get_object_or_404(Commutateur, id=pk)
+    context = {'com': com}
+    return render(request, 'computerApp/commu_detail.html', context)
+
+def commu_add_form(request):
+    if request.method == 'POST':
+        form = AddCommutateurForm(request.POST or None)
+        if form.is_valid():
+            new_commu = Commutateur(nom=form.cleaned_data['nom'])
+            new_commu.save()
+            return redirect('coms')
+
+    else:
+        form = AddCommutateurForm()
+        context = {'form' : form}
+        return render(request, 'computerApp/commu_add.html', context)
+
+def commu_delete_views(request, pk):
+    com = get_object_or_404(Commutateur, id=pk)
+    if request.method == 'POST':
+        com.delete()
+        return redirect('coms')
+    context = {'com': com }
+    return render(request, 'computerApp/commu_delete.html', context)
+
+#Vue pour afficher la liste des entretiens et des maintenances préventives :
+
+def maintenance_list_views(request):
+    maintenances = Maintenance.objects.all()
+    context = {'maintenances': maintenances}
+    return render(request, 'computerApp/maintenance_list.html', context)
+
+
+#Vue pour créer un nouvel entretien ou une nouvelle maintenance préventive
+
+def create_maintenance_views(request):
+    if request.method == 'POST':
+        form = MaintenanceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('maintenances')
+    else:
+        form = MaintenanceForm()
+    return render(request, 'computerApp/create_maintenance.html', {'form': form})

@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h1 class="title fw-bold">Liste des maintenances</h1>
+    {% if maintenances %}
+    <div class="row">
+        <table class="table table-striped w-50 mx-auto">
+            <thead>
+                <tr>
+                    <th>Machine</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for maintenance in maintenances %}
+                <tr>
+                    <td>{{ maintenance.machine }}</td>
+                    <td>{{ maintenance.date }}</td>
+                    <td>{{ maintenance.description }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-success" href="{% url 'add-maintenance' %}">Programmer une maintenance</a>
+    </div>
+    {% else %}
+    <p class="tab">Aucun entretien ou maintenance préventive disponible</p>
+    <a class="btn btn-success" href="{% url 'add-maintenance' %}">Programmer une maintenance</a>
+    {% endif %}
+{% endblock %}
