@@ -34,7 +34,6 @@ class InfrastructureForm(forms.Form):
 class AddCommutateurForm(forms.Form) : 
 
     nom = forms.CharField(required = True, label= 'Nom ')
-    prenom = forms.CharField(required = True, label= 'Prenom')
 
     def clean_nom(self):
         data = self.cleaned_data["nom"]

@@ -53,6 +53,7 @@ class LoginForm(forms.Form):
     password = forms.CharField(label='Mot de passe', widget=forms.PasswordInput)
 
 class Infrastructure(models.Model):
+    prenom = forms.CharField(required = True, label= 'Prenom')
     nom = models.CharField(max_length=200)
     machines = models.ManyToManyField(Machine)
 
